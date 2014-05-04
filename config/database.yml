@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: chair_auth_development
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: chair_auth_test
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: chair_auth_prod
+  pool: 5
+  timeout: 5000
