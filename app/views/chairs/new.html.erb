@@ -1,13 +1,18 @@
 <h1>Create a New Chair</h1>
 <%= form_for @chair do |f| %>
 
-  <%= label_tag(:name, "Type:") %>
-  <%= f.text_field :name %></br>
+	<%= label_tag(:name, "Type:") %>
+	<%= f.text_field :name %></br>
+	
+	<%= label_tag(:description, "Description") %> 
+	<%= f.text_area :description %></br>
+	<%= f.submit "Create" %>
 
-  <%= label_tag(:description, "Description") %> 
-  <%= f.text_area :description %></br>
-  <%= f.submit "Create" %>
+	<div class="chair">
+  		<%= f.label :image %><br />
+  		<%= f.file_field :image %>
+	</div>
 
-<!-- allow upload/delete of images -->
+	
 
 <% end %>

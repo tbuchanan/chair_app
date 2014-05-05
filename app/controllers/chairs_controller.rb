@@ -1,7 +1,12 @@
 class ChairsController < ApplicationController
-
-	def index
-		@chairs = Chair.all
+  before_filter :authenticate_user!
+	
+  def index
+    if user_signed_in?
+		  @chairs = Chair.all
+    else
+      redirect_to "/home"
+    end
 	end
 
 	def show
@@ -37,6 +42,6 @@ class ChairsController < ApplicationController
 
 private
    def chair_params
-   	params.require(:chair).permit(:title, :description)
+   	params.require(:chair).permit(:name, :description, :image)
    end
 end

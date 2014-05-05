@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  root to: 'chairs#index'
+  root to: 'sites#index'
+
 
   resources :chairs
+
+
 
  #                   Prefix Verb   URI Pattern                    Controller#Action
  #                     root GET    /                              chairs#index
