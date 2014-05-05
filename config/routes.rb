@@ -2,7 +2,19 @@ Rails.application.routes.draw do
   
   root 'chairs#index'
 
-  #resources: chairs
+  resources :chairs
+
+#     Prefix Verb   URI Pattern                Controller#Action
+#       root GET    /                          chairs#index
+#     chairs GET    /chairs(.:format)          chairs#index
+#            POST   /chairs(.:format)          chairs#create
+#  new_chair GET    /chairs/new(.:format)      chairs#new
+# edit_chair GET    /chairs/:id/edit(.:format) chairs#edit
+#      chair GET    /chairs/:id(.:format)      chairs#show
+#            PATCH  /chairs/:id(.:format)      chairs#update
+#            PUT    /chairs/:id(.:format)      chairs#update
+#            DELETE /chairs/:id(.:format)      chairs#destroy
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

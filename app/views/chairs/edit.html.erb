@@ -1,0 +1,13 @@
+<h1>Edit Your Chair</h1>
+<%= form_for @chair do |f| %>
+
+  <%= label_tag(:name, "Type:") %>
+  <%= f.text_field :name %></br>
+
+  <%= label_tag(:description, "Description") %>
+  <%= f.text_area :description %></br>
+
+	<!-- show image/s & upload/delete images -->
+
+  <%= f.submit "Update" %>
+<% end %>
