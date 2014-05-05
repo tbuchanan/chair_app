@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse" style="background-color: #;" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="<%= root_path %> ">Chair</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar navbar-right" role="search">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+              <li><%= link_to "Account info", edit_user_registration_path %></li>
+              <li><%= link_to "Log out",destroy_user_session_path, method: :delete %></li>
+          <% else %>
+              <li class=""><a href="<%= new_user_session_path %>">Sign in</a></li>
+              <li class="active"><a href="<%= new_user_registration_path %>">Sign up</a></li>
+          <% end %>
+      </ul>
+      
+      </div>
+    </div>
+
+      <!-- <li><%#= link_to('Chairs', chairs_path) %></li>
+      <li><%#= link_to('Ingredients', ingredients_path) %></li> -->
+   
+</nav>

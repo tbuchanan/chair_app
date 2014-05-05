@@ -81,5 +81,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  #env secret key
   config.force_ssl = true
+
+  #devise setup for heroku
+  config.action_mailer.default_url_options = { host: 'herokuappname' }
 end

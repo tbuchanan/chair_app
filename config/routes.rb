@@ -1,19 +1,35 @@
 Rails.application.routes.draw do
   
-  root 'chairs#index'
+  devise_for :users
+  root to: 'chairs#index'
 
   resources :chairs
 
-#     Prefix Verb   URI Pattern                Controller#Action
-#       root GET    /                          chairs#index
-#     chairs GET    /chairs(.:format)          chairs#index
-#            POST   /chairs(.:format)          chairs#create
-#  new_chair GET    /chairs/new(.:format)      chairs#new
-# edit_chair GET    /chairs/:id/edit(.:format) chairs#edit
-#      chair GET    /chairs/:id(.:format)      chairs#show
-#            PATCH  /chairs/:id(.:format)      chairs#update
-#            PUT    /chairs/:id(.:format)      chairs#update
-#            DELETE /chairs/:id(.:format)      chairs#destroy
+ #                   Prefix Verb   URI Pattern                    Controller#Action
+ #                     root GET    /                              chairs#index
+ #                   chairs GET    /chairs(.:format)              chairs#index
+ #                          POST   /chairs(.:format)              chairs#create
+ #                new_chair GET    /chairs/new(.:format)          chairs#new
+ #               edit_chair GET    /chairs/:id/edit(.:format)     chairs#edit
+ #                    chair GET    /chairs/:id(.:format)          chairs#show
+ #                          PATCH  /chairs/:id(.:format)          chairs#update
+ #                          PUT    /chairs/:id(.:format)          chairs#update
+ #                          DELETE /chairs/:id(.:format)          chairs#destroy
+ #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
+ #             user_session POST   /users/sign_in(.:format)       devise/sessions#create
+ #     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
+ #            user_password POST   /users/password(.:format)      devise/passwords#create
+ #        new_user_password GET    /users/password/new(.:format)  devise/passwords#new
+ #       edit_user_password GET    /users/password/edit(.:format) devise/passwords#edit
+ #                          PATCH  /users/password(.:format)      devise/passwords#update
+ #                          PUT    /users/password(.:format)      devise/passwords#update
+ # cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
+ #        user_registration POST   /users(.:format)               devise/registrations#create
+ #    new_user_registration GET    /users/sign_up(.:format)       devise/registrations#new
+ #   edit_user_registration GET    /users/edit(.:format)          devise/registrations#edit
+ #                          PATCH  /users(.:format)               devise/registrations#update
+ #                          PUT    /users(.:format)               devise/registrations#update
+ #                          DELETE /users(.:format)               devise/registrations#destroy            
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
