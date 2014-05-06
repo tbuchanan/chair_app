@@ -21,6 +21,7 @@ class ChairsController < ApplicationController
 
 	def create 
 		@chair = Chair.create chair_params
+    # binding.pry
 		redirect_to chairs_path
 	end
 
@@ -44,6 +45,6 @@ class ChairsController < ApplicationController
 
 private
    def chair_params
-   	params.require(:chair).permit(:name, :description, :image)
+   	params.require(:chair).permit(:name, :description, :address, :image)
    end
 end
