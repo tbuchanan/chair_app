@@ -1,11 +1,18 @@
 <!-- user chair page -->
 
 <h1>Furniture details</h1>
-<p>Type: <%= @chair.name%></p>
-<p>Description: <%= @chair.description%></p>
-<p><%= image_tag @chair.image(:medium) %></p>
+<div class="container">
+	<p>Type: <%= @chair.name%></p>
+	<p>Description: <%= @chair.description%></p>
+	<%= image_tag @chair.image(:medium) %>
+
+	<div id="google">
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=400x300&maptype=roadmap
+		&markers=color:red%7Clabel:C%7C40.718217,-73.998284&sensor=false"</img>
+	</div>
+</div>
+
 
 <%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn-danger' %>
 </br></br>
 <%= link_to "Back To Chairs List",chairs_path%>
-
