@@ -1,12 +1,12 @@
 <!-- show page -->
 <h1>Gallery</h1>
 
-<%= link_to "Donate to the Chair community", new_chair_path %>
+	<center><%= link_to "Donate to the Chair community", new_chair_path %></center>
 
-<% @chairs.each do |chair| %>
-    <li>
-      <%= link_to chair.name, chair_path(chair.id) %>
-      <%#= link_to "edit", edit_chair_path(chair[:id]) %>
-      <%= image_tag chair.image(:square) %>
-    </li>
-<% end %>
+<br></br>
+	<% @chairs.each do |chair| %>
+    	<ul class="gallery">
+      	<p><%= link_to chair.name, chair_path(chair.id) %></p>
+      	<p><%= image_tag chair.image(:medium) %></p>
+    	</ul>
+	<% end %>

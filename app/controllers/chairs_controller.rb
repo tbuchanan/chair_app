@@ -16,11 +16,12 @@ class ChairsController < ApplicationController
 
 	def new
 		@chair = Chair.new
+
 	end
 
 	def create 
 		@chair = Chair.create chair_params
-		
+		redirect_to chairs_path
 	end
 
 	def edit
@@ -28,17 +29,17 @@ class ChairsController < ApplicationController
   end
 
   def update
-    chair = Chair.find(params[:id])
+    @chair = Chair.find(params[:id])
     #not sure what attributes is doing here
-    chair.update_attributes chair_params 
-    redirect_to(chair)
+    @chair.update_attributes chair_params 
+    redirect_to(@chair)
   end
 
   def destroy
     Chair.find(params[:id]).destroy
     # redirect_to root_path
     # redirect_to :back
-    redirect_to(chairs_path)
+    redirect_to(new_chair_path)
   end
 
 private

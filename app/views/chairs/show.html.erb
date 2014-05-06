@@ -1,8 +1,11 @@
 <!-- user chair page -->
 
-<h1>User chair page</h1>
+<h1>Furniture details</h1>
 <p>Type: <%= @chair.name%></p>
 <p>Description: <%= @chair.description%></p>
-<p>Description: <%= @chair.image%></p>
+<p><%= image_tag @chair.image(:medium) %></p>
 
+<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn-danger' %>
+</br></br>
 <%= link_to "Back To Chairs List",chairs_path%>
+

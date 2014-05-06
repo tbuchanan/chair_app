@@ -1,20 +1,17 @@
-<h1>Create a New Chair</h1>
+<h1>Donate an item</h1>
 <%= form_for @chair do |f| %>
 
 	<%= label_tag(:name, "Type:") %>
 	<%= f.text_field :name %></br>
 	
 	<%= label_tag(:description, "Description") %> 
-	<%= f.text_area :description %></br>
-	<%= f.submit "Create" %>
-
-	<div class="form-group">
-  		<%= f.label :image %><br />
-  		<%= f.file_field :image %>
-  		<%= link_to chair.url %>
-	</div>
+	<%= f.text_area :description %>
 
 	
+  	<%= f.label :image %>
+  	<%= f.file_field :image %>
+<br></br>	
+	<%= f.submit "Donate", :class => "btn-info" %>
 
 <% end %>
 
