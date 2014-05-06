@@ -20,7 +20,7 @@ class ChairsController < ApplicationController
 
 	def create 
 		@chair = Chair.create chair_params
-		redirect_to chair_path(@chair)
+		
 	end
 
 	def edit
@@ -35,8 +35,9 @@ class ChairsController < ApplicationController
   end
 
   def destroy
-    chair = Chair.find(params[:id])
-    chair.delete
+    Chair.find(params[:id]).destroy
+    # redirect_to root_path
+    # redirect_to :back
     redirect_to(chairs_path)
   end
 

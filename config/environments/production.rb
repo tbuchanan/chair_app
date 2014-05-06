@@ -87,13 +87,14 @@ Rails.application.configure do
   #devise setup for heroku
   config.action_mailer.default_url_options = { host: 'https://chair-app.herokuapp.com' }
 
-  #required for AWS, S3, heroku & paperclip implementation
+  
+   #required for AWS, S3, heroku & paperclip implementation
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
     :bucket => ENV['AWS_BUCKET'],
-    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    :access_key_id => ENV['AWSAccessKeyId'],
+    :secret_access_key => ENV['AWSSecretKey']
     }
   }
 end

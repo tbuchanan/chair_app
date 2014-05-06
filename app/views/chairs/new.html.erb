@@ -8,11 +8,13 @@
 	<%= f.text_area :description %></br>
 	<%= f.submit "Create" %>
 
-	<div class="chair">
+	<div class="form-group">
   		<%= f.label :image %><br />
   		<%= f.file_field :image %>
+  		<%= link_to chair.url %>
 	</div>
 
 	
 
 <% end %>
+

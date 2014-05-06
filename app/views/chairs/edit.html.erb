@@ -1,13 +1,18 @@
 <h1>Edit Your Chair</h1>
-<%= form_for @chair do |f| %>
+	<%= form_for @chair do |f| %>
+	
+  		<%= label_tag(:name, "Type:") %>
+  		<%= f.text_field :name %></br>
 
-  <%= label_tag(:name, "Type:") %>
-  <%= f.text_field :name %></br>
+  		<%= label_tag(:description, "Description") %>
+  		<%= f.text_area :description %></br>
+  
+  		<%= image_tag @chair.image(:square) %>
 
-  <%= label_tag(:description, "Description") %>
-  <%= f.text_area :description %></br>
-
-	<!-- show image/s & upload/delete images -->
-
-  <%= f.submit "Update" %>
+  		<%= f.submit "Update", :class => 'btn-info btn-sm' %>
+<br></br>
+  		<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn-danger' %>
 <% end %>
+
+
+<!-- 1140 x 30 -->

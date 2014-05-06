@@ -7,6 +7,6 @@
     <li>
       <%= link_to chair.name, chair_path(chair.id) %>
       <%#= link_to "edit", edit_chair_path(chair[:id]) %>
-    	
+      <%= image_tag chair.image(:square) %>
     </li>
 <% end %>
