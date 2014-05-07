@@ -8,13 +8,11 @@
 	<p>Address: <%= @chair.address%></p>
 	<%= image_tag @chair.image(:medium) %>
 
-	<%#= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@geocode}" %>
-
-
-	<!-- <div id="google">
-		<img src="http://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=400x300&maptype=roadmap
-		&markers=color:red%7Clabel:C%7C40.718217,-73.998284&sensor=false"</img>
-	</div> -->
+	<div id="google">
+		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=20&markers=#{@chair.address}" %>
+	</div>
+		<br></br>
+	
 </div>
 
 

@@ -16,35 +16,47 @@ class ChairsController < ApplicationController
 
 	def new
 		@chair = Chair.new
-
 	end
 
 	def create 
-		@chair = Chair.create chair_params
+
+		@chair = current_user.chairs.create chair_params
     # binding.pry
 		redirect_to chairs_path
 	end
 
 	def edit
-    @chair = Chair.find(params[:id])
+    begin
+      @chair = current_user.chairs.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "Not Authorized!"
+      redirect_to chairs_path
+    end
   end
 
   def update
-    @chair = Chair.find(params[:id])
+    @chair = current_user.chairs.find(params[:id])
+    if @chair.nil?
+      render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
+    end
     #not sure what attributes is doing here
     @chair.update_attributes chair_params 
     redirect_to(@chair)
+    # end
   end
 
   def destroy
-    Chair.find(params[:id]).destroy
-    # redirect_to root_path
-    # redirect_to :back
-    redirect_to(new_chair_path)
+    begin
+      @chair = current_user.chairs.find(params[:id])
+      @chair.destroy
+      redirect_to(new_chair_path)
+    rescue 
+      render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
+    end
   end
 
 private
    def chair_params
-   	params.require(:chair).permit(:name, :description, :address, :image)
+   	params.require(:chair).permit(:name, :description, :address, :image, :longitude, :latitude)
    end
 end
