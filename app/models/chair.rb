@@ -1,6 +1,11 @@
 class Chair < ActiveRecord::Base
 	belongs_to :user	
 
+  validates :name, presence: true, length: {minimum: 3}
+  # validates :image, presence: true
+  validates :image, :presence => { :message => "Content is required" }
+  validates :geocode, presence: true
+
   #for geocoder gem to use longitude and latitude
   geocoded_by :address
   after_validation :geocode
@@ -15,6 +20,8 @@ class Chair < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-  
 
 end
+
+
+ 

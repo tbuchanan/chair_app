@@ -1,0 +1,5 @@
+
+<!-- devise required flash message -->
+<% flash.each do |name, msg| %>
+	<%= content_tag(:div, msg, class: "alert alert-info") %>
+<% end %>

@@ -14,12 +14,15 @@ class ChairsController < ApplicationController
 		#should show all available items
 	end
 
+  def show_user
+    @chair = current_user.chairs
+  end
+
 	def new
 		@chair = Chair.new
 	end
 
 	def create 
-
 		@chair = current_user.chairs.create chair_params
     # binding.pry
 		redirect_to chairs_path
@@ -32,6 +35,9 @@ class ChairsController < ApplicationController
       flash[:notice] = "Not Authorized!"
       redirect_to chairs_path
     end
+      # if @chair.nil?
+      #   redirect_to(@chair)
+      # end
   end
 
   def update
