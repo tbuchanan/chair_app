@@ -2,8 +2,7 @@ class Chair < ActiveRecord::Base
 	belongs_to :user	
 
   validates :name, presence: true, length: {minimum: 3}
-  # validates :image, presence: true
-  validates :image, :presence => { :message => "Content is required" }
+  validates :image, :presence => { :message => "Image is required" }
   validates :geocode, presence: true
 
   #for geocoder gem to use longitude and latitude

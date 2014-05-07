@@ -1,0 +1,23 @@
+<h1>Welcome to your page</h1>
+
+<% @chairs.each do |chair| %>
+    	<ul class="gallery">
+      	<p><%= link_to chair.name, chair_path(chair.id) %></p>
+      	<p><%= image_tag chair.image(:medium) %></p>
+    	</ul>
+	<% end %>
+
+
+
+
+
+
+
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+   <a href="/about" class="navbar-text">About</a>
+   <a href="/contact" class="navbar-text">Contact</a>
+   <a href="/privacy" class="navbar-text">Privacy</a>
+</div>

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   
   devise_for :users
+
+  # new root for static home page
   root to: 'sites#index'
 
+  # mother static pages
   get '/about', to: 'sites#about'
   get '/contact', to: 'sites#contact'
   get '/privacy', to: 'sites#privacy'
+
+  #user profile page
+  get '/dashboard', to: 'dashboards#home'
   
 
   resources :chairs

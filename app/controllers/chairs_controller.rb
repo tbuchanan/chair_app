@@ -2,8 +2,8 @@ class ChairsController < ApplicationController
   before_filter :authenticate_user!
 	
   def index
-    if user_signed_in?
-		  @chairs = Chair.all
+    if user_signed_in? 
+      @chairs = Chair.all
     else
       redirect_to "/home"
     end
@@ -14,18 +14,19 @@ class ChairsController < ApplicationController
 		#should show all available items
 	end
 
-  def show_user
-    @chair = current_user.chairs
-  end
-
 	def new
 		@chair = Chair.new
 	end
 
 	def create 
 		@chair = current_user.chairs.create chair_params
-    # binding.pry
-		redirect_to chairs_path
+		if @chair.save
+      redirect_to chairs_path
+    else
+    error_messages = @chair.errors.messages.values.flatten
+    flash.now[:errors] = error_messages
+    render action: "new"
+    end
 	end
 
 	def edit
@@ -34,6 +35,9 @@ class ChairsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       flash[:notice] = "Not Authorized!"
       redirect_to chairs_path
+        if @chair
+          current_user.chairs.find_by?(:user_id)
+        end
     end
       # if @chair.nil?
       #   redirect_to(@chair)
