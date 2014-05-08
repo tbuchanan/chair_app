@@ -1,12 +1,17 @@
 <!-- show page -->
-<h1>Gallery</h1>
-
-	<center><%= link_to "Donate to the Chair community", new_chair_path %></center>
+<div class="row-fluid">
+		<h2><%= link_to "Donate", new_chair_path, :class => "btn btn-default" %></h2>
+	</div>
+</div>	
 
 <br></br>
-	<% @chairs.each do |chair| %>
-    	<ul class="gallery">
-      	<p><%= link_to chair.name, chair_path(chair.id) %></p>
-      	<p><%= image_tag chair.image(:medium) %></p>
-    	</ul>
-	<% end %>
+		
+			<% @chairs.each do |chair| %>
+		    	<div class="row">
+					<div class="col-sm-4">
+		      		<p><%= link_to chair.name, chair_path(chair.id) %>
+		      		<p><%= image_tag chair.image(:medium) %></p></br>
+		      	</div>
+		    	
+			<% end %>
+		

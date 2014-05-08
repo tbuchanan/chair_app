@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ChairApp</title>
+  <title>chair-app</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,12 +14,9 @@
 	
 	  <%= render 'layouts/header' %>
 	  <%= render 'layouts/form' %>
-	    <div class="row">
-	      <div class="col-md-12">
 
 	<%= yield %>
-	      </div>
-    	</div>
+
 	</div>
 
 </body>

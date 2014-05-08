@@ -1,21 +1,22 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="<%= root_path %> ">Chair</a>
+<header>
+  <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="<%= root_path %> ">Chair</a>
+        </div>
+        <div class="nav navbar-nav navbar-right">   
+            <% if user_signed_in? %>
+              <li class="right">
+                <li><%= link_to "Profile", dashboard_path %></li>
+                <li><%= link_to "Donations", chairs_path %></li>
+                <li><%= link_to "Account settings", edit_user_registration_path %></li>
+                <li><%= link_to "Log out",destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li class=""><a href="<%= new_user_session_path %>">Sign in</a></li>
+                <li class="active"><a href="<%= new_user_registration_path %>">Sign up</a></li>
+            <% end %>
+              </li>
+        </div>
       </div>
-      <div class="navbar navbar-right" role="search">
-        <ul class="nav navbar-nav">
-          <% if user_signed_in? %>
-              <li><%= link_to "Gallery", chairs_path %></li>
-              <li><%= link_to "Account settings", edit_user_registration_path %></li>
-              <li><%= link_to "Log out",destroy_user_session_path, method: :delete %></li>
-          <% else %>
-              <li class=""><a href="<%= new_user_session_path %>">Sign in</a></li>
-              <li class="active"><a href="<%= new_user_registration_path %>">Sign up</a></li>
-          <% end %>
-      </ul>
-      
-      </div>
-    </div>
-   
-</nav>
+  </nav>
+</header>

@@ -1,21 +1,59 @@
 <!-- need to add edit for user's donations -->
 
-<h1>Furniture details</h1>
-<div class="container">
+<h2>Furniture details</h2>
 
-	<p>Type: <%= @chair.name%></p>
-	<p>Description: <%= @chair.description%></p>
-	<p>Address: <%= @chair.address%></p>
-	<%= image_tag @chair.image(:medium) %>
-
-	<div id="google">
-		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@chair.address}" %>
-	</div>
-		<br></br>
+	Type: <%= @chair.name%></br>
+	Description: <%= @chair.description%></br>
+	Address: <%= @chair.address%>
 	
+	<div class="row-fluid">
+		<div class="col-md-5">
+			<%= image_tag @chair.image(:medium) %>
+		</div>
+		<div class="col-md-7" id="google">
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x265&sensor=false&markers=#{@chair.address}&zoom=16", id: "chairMap" %>
+			<button id="zoomOut"> - </button><button id="zoomIn"> + </button>
+		</div>
+			
+		<script>
+				$("#google").on("click", "#zoomIn, #zoomOut", function(event){
+					var $img = $("#chairMap");
+					var src = $("#chairMap").attr("src");
+
+					var src_arr = src.split("&zoom=")
+					var zoom = (Number(src_arr[1]));
+
+					console.log(event.target.id)
+					if (event.target.id === "zoomIn"){
+						if (zoom < 20){ 
+							zoom += 1;
+						
+						}
+					} else {
+						if (zoom > 0){ 
+							zoom -= 1;
+						}
+					}
+					src = src_arr[0] + "&zoom="+ zoom;
+					$img.attr("src",src);
+				});
+				// $("#zoomOut").on("click", function(event){
+				// 	var $img = $("#chairMap");
+				// 	var src = $("#chairMap").attr("src");
+
+				// 	var src_arr = src.split("&zoom=");
+				// 	var zoom = (Number(src_arr[1]));
+
+				// 	if (zoom > 0){
+				// 		zoom -= 1;
+				// 		src = src_arr[0] + "&zoom="+ zoom;
+				// 		$img.attr("src", src);
+				// 	}
+				// });
+		</script>
+	</div>
 </div>
-
-
-<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn-danger' %>
-</br></br>
-<%= link_to "Back To Chairs List",chairs_path%>
+<br></br>
+	<%# if @chair.id == current_user.id %>
+		<%= link_to "Edit",edit_chair_path, :class => 'btn btn-info' %>
+	<%# end %>

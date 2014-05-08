@@ -19,9 +19,9 @@ class ChairsController < ApplicationController
 	end
 
 	def create 
-		@chair = current_user.chairs.create chair_params
+		@chair = current_user.chairs.new chair_params
 		if @chair.save
-      redirect_to chairs_path
+      redirect_to dashboard_path
     else
     error_messages = @chair.errors.messages.values.flatten
     flash.now[:errors] = error_messages
@@ -30,22 +30,19 @@ class ChairsController < ApplicationController
 	end
 
 	def edit
-    begin
-      @chair = current_user.chairs.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
+    
+    @chair = current_user.chairs.find_by_id(params[:id])
+    
+    if @chair.nil?
       flash[:notice] = "Not Authorized!"
       redirect_to chairs_path
-        if @chair
-          current_user.chairs.find_by?(:user_id)
-        end
+    else 
+       render :edit
     end
-      # if @chair.nil?
-      #   redirect_to(@chair)
-      # end
   end
 
   def update
-    @chair = current_user.chairs.find(params[:id])
+    @chair = current_user.chairs.find_by_id(params[:id])
     if @chair.nil?
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
     end
@@ -59,7 +56,7 @@ class ChairsController < ApplicationController
     begin
       @chair = current_user.chairs.find(params[:id])
       @chair.destroy
-      redirect_to(new_chair_path)
+      redirect_to(dashboard_path)
     rescue 
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
     end

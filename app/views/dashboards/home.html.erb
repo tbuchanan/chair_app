@@ -1,23 +1,19 @@
-<h1>Welcome to your page</h1>
+<br></br>
+<h2></h2>
 
-<% @chairs.each do |chair| %>
-    	<ul class="gallery">
-      	<p><%= link_to chair.name, chair_path(chair.id) %></p>
-      	<p><%= image_tag chair.image(:medium) %></p>
-    	</ul>
+	<% @chairs.each do |chair| %>
+    	<div class="row">
+			<div class="col-sm-4">
+      		<p><%= link_to chair.name, chair_path(chair.id) %></p>	
+      		<p><%= image_tag chair.image(:medium) %></p></br>
+      	</div>
 	<% end %>
+		</div>
 
 
-
-
-
-
-
-
-
-
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-   <a href="/about" class="navbar-text">About</a>
-   <a href="/contact" class="navbar-text">Contact</a>
-   <a href="/privacy" class="navbar-text">Privacy</a>
-</div>
+	<div class="navbar navbar-fixed-bottom">
+	   <a href="/about" class="navbar-text">About</a>
+	   <a href="/contact" class="navbar-text">Contact</a>
+	   <a href="/privacy" class="navbar-text">Privacy</a>
+	</div>
+	

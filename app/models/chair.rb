@@ -1,5 +1,5 @@
 class Chair < ActiveRecord::Base
-	belongs_to :user	
+	belongs_to :user
 
   validates :name, presence: true, length: {minimum: 3}
   validates :image, :presence => { :message => "Image is required" }

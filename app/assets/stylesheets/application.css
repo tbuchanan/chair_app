@@ -10,22 +10,54 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ * 
+ *= require bootstrap.css
  *= require_tree .
  *= require_self
- *= require bootstrap.css
  */
 
+#flick {
+	background-color: #E0FFFF;
+}
+
+h2 {
+	font-family: 'Arvo', serif;
+}
+
+.navbar-brand {
+	color: white;
+	font-family: 'Arvo', serif;
+	font-size: 30px;
+}
+
+p {
+	text-align: center;
+	color: black;
+}
+
+.navbar-nav > li > a {
+	color: white;
+	font-family: 'Arvo', serif;
+	font-size: 15px;
+}
+
+.navbar-fixed-bottom > a{
+	font-family: 'Arvo', serif;
+	color: white;
+	font-size: 15px;
+}
+
 .navbar {
-height: 1%;
+	background-color: #5F9EA0;
+	height: 1%;
+	color: white;
 }
 
-.donate {
-	text-align: center;
+h1 {
+	font-family: 'Arvo', serif;
 }
 
-ul.gallery {
-	float: left;	
-	text-align: center;
-}
+@media only screen and (max-width: 640px){}
+@media only screen and (max-width: 479px){}
 
 

@@ -5,14 +5,14 @@
   		<%= f.text_field :name %></br>
 
   		<%= label_tag(:description, "Description") %>
-  		<%= f.text_area :description %></br>
-  
-  		<%= image_tag @chair.image(:square) %>
+  		<%= f.text_area :description %>
+  <br></br>
+  		<%= image_tag @chair.image(:square) %></br>
 
-  		<%= f.submit "Update", :class => 'btn-info btn-sm' %>
+  		<%= f.submit "Update", :class => ' btn btn-info' %>
 <br></br>
-  		<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn-danger' %>
-<% end %>
+  		<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %>
+	<% end %>
 
 
 <!-- button needs to be fixed -->
