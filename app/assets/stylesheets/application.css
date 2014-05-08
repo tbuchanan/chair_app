@@ -40,7 +40,7 @@ h2 {
 
 p {
 	text-align: center;
-	color: black;
+	color: #4682B4;
 }
 .navbar-brand {
 	font-size: 40px;
@@ -82,6 +82,8 @@ a.navbar-text {
 
 h1 {
 	font-family: 'Arvo', serif;
+	text-align: center;
+	color: #4682B4;
 }
 
 .navbar-text {

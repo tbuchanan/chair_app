@@ -1,16 +1,16 @@
-<!-- show page -->
-
-<h1></h1>
+<h1>Avaiable donations</h1>
 
 
 <br></br>
 		
-			<% @chairs.each do |chair| %>
-		    	<div class="row">
-					<div class="col-sm-4">
-		      		<p><%= link_to chair.name, chair_path(chair.id) %>
-		      		<p><%= image_tag chair.image(:medium) %></p></br>
-		      	</div>
+	<% @chairs.each do |chair| %>
+		<div class="row">
+			<div class="col-sm-4">
+		      <p><%= link_to chair.name, chair_path(chair.id) %> | 
+		      <%= link_to chair.address, chair_path(chair.id) %></p>
+		      <p><%= image_tag chair.image(:medium) %></p></br>
+		   </div>
 		    	
-			<% end %>
+	<% end %>
+		</div>
 		
