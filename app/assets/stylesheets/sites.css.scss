@@ -4,3 +4,43 @@
 
 
 
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+
+
+// html{
+//   font: 1em/1.5 "Lato", sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-rendering: optimizelegibility;
+// }
+
+#flick{
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+  
+  h1, h3{
+    margin: 0;
+  }
+  
+  h3{
+    color: #008080;
+    font-family: 'Arvo', serif;
+  }
+  
+  hgroup{
+    display: inline-block;
+    z-index: 5;
+    position: absolute;
+    top: 38%;
+    left: 25%;
+    color: #2F4F4F;
+    border: 3px solid #2F4F4F;
+    padding: .5em 2em;
+    background-color: rgba(40,70,80,.1);
+  }
+  
