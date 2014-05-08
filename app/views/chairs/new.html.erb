@@ -1,19 +1,18 @@
-<h1>Donate an item</h1>
+<h1>Donate an item</h1></br>
 <%= form_for @chair do |f| %>
 
-	<%= label_tag(:name, "Type:") %>
-	<%= f.text_field :name %></br>
+	<div><%= label_tag(:name, "Type:") %></div>
+	<div><%= f.text_field :name %></br></div>
 	
-	<%= label_tag(:description, "Description") %> 
-	<%= f.text_area :description %>
+	<div><%= label_tag(:description, "Description") %></div> 
+	<div><%= f.text_area :description %></div>
 
-	<%= label_tag(:address, "Address (123 Main St, San Francisco, CA):") %>
-	<%= f.text_field :address %></br>
+	<div><%= label_tag(:address, "Address (123 Main St, San Francisco, CA):") %></div>
+	<div><%= f.text_field :address %></br></div>
 
-  	<%= f.label :image %>
-  	<%= f.file_field :image %>
-<br></br>	
-	<%= f.submit "Donate", :class => "btn-info" %>
+  	<div><%= f.label :image %></div>
+  	<div><%= f.file_field :image %></div></br>
+	<div><%= f.submit "Donate", :class => "btn-info" %></div>
 
 <% end %>
 

@@ -1,18 +1,26 @@
-<h1>Edit Your Chair</h1>
-	<%= form_for @chair do |f| %>
-	
-  		<%= label_tag(:name, "Type:") %>
-  		<%= f.text_field :name %></br>
+<h1></h1>
 
-  		<%= label_tag(:description, "Description") %>
-  		<%= f.text_area :description %>
-  <br></br>
-  		<%= image_tag @chair.image(:square) %></br>
+	<div class="row">  
+    <div class="col-sm-5">
+     <div id="chair-flow"> 
+      <%= form_for @chair do |f| %>
+    
+  		  <div><%= label_tag(:name, "Type:") %></div>
+  		  <div><%= f.text_field :name %></div>
 
-  		<%= f.submit "Update", :class => ' btn btn-info' %>
-<br></br>
-  		<%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %>
-	<% end %>
+  		  <div><%= label_tag(:description, "Description") %></div>
+  		  <div><%= f.text_area :description %></div>
+     </div>
+  		  <div><%= f.submit "Update", :class => ' btn btn-default' %></div></br>
+        
+  		  <%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %>
+	    <% end %>
+    </div>
+      <br></br>
+        <div class="col-sm-7">
+          <%= image_tag @chair.image(:medium) %>
+        </div>
+  </div>
 
 
 <!-- button needs to be fixed -->

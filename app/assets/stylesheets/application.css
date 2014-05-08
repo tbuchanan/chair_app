@@ -24,37 +24,70 @@ h2 {
 	font-family: 'Arvo', serif;
 }
 
+#chair-flow {
+	width: 225%;
+}
+
 .navbar-brand {
-	color: white;
+	color: #FAEBD7;
 	font-family: 'Arvo', serif;
 	font-size: 30px;
+}
+
+.btn-default {
+	border: 2px solid black;
 }
 
 p {
 	text-align: center;
 	color: black;
 }
+.navbar-brand {
+	font-size: 40px;
+}
+
+a.navbar-text {
+	font-size: 18px;
+	margin-top: 21px;
+}
+
+.nav > li > a:hover, a:focus {
+	text-decoration: underline;
+	color: #2a6496;
+	background-color: transparent;
+}
 
 .navbar-nav > li > a {
-	color: white;
+	color: #FAEBD7;
 	font-family: 'Arvo', serif;
-	font-size: 15px;
+	font-size: 18px;
+	margin-top: 9px;
 }
 
 .navbar-fixed-bottom > a{
 	font-family: 'Arvo', serif;
-	color: white;
-	font-size: 15px;
+	color: #FAEBD7;
+	font-size: 18px;
+}
+
+.navbar-fixed-bottom > a:hover, a:focus{
+		color: #2a6496;
+
 }
 
 .navbar {
 	background-color: #5F9EA0;
 	height: 1%;
-	color: white;
 }
 
 h1 {
 	font-family: 'Arvo', serif;
+}
+
+.navbar-text {
+	font-family: 'Arvo', serif;
+	color: #FAEBD7;
+	font-size: 15px;	
 }
 
 @media only screen and (max-width: 640px){}

@@ -1,11 +1,14 @@
 <!-- need to add edit for user's donations -->
 
-<h2>Furniture details</h2>
-
+<h2><!-- Furniture details --></h2>
+	<div class="container">
 	Type: <%= @chair.name%></br>
 	Description: <%= @chair.description%></br>
-	Address: <%= @chair.address%>
-	
+	Address: <%= @chair.address%></br>
+	<h1></h1>
+			<%= link_to "Edit",edit_chair_path, :class => 'btn btn-default' %>
+		</div></br>
+
 	<div class="row-fluid">
 		<div class="col-md-5">
 			<%= image_tag @chair.image(:medium) %>
@@ -54,6 +57,4 @@
 	</div>
 </div>
 <br></br>
-	<%# if @chair.id == current_user.id %>
-		<%= link_to "Edit",edit_chair_path, :class => 'btn btn-info' %>
-	<%# end %>
+		
