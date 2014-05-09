@@ -56,7 +56,7 @@ h2 {
 .navbar-brand {
 	color: #FAEBD7;
 	font-family: 'Arvo', serif;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .btn-default {
@@ -68,14 +68,12 @@ p {
 	color: #2980b9;
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-.navbar-brand {
-	font-size: 40px;
-}
 
 a.navbar-text {
 	font-size: 18px;
 	margin-top: 21px;
-	position: relative;
+	font-family: 'Arvo', serif;
+	color: #FAEBD7;
 }
 
 .nav > li > a:hover, a:focus {
@@ -112,14 +110,8 @@ h1 {
 	text-align: left;
 	color: #4682B4;
 }
-
-.navbar-text {
-	font-family: 'Arvo', serif;
-	color: #FAEBD7;
-	font-size: 15px;	
-}
-
+/*
 @media only screen and (max-width: 640px){}
 @media only screen and (max-width: 479px){}
-
+*/
 

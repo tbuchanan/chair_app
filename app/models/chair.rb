@@ -5,7 +5,7 @@ class Chair < ActiveRecord::Base
   validates :image, :presence => { :message => "Image is required" }
   validates :geocode, presence: true
 
-  #for geocoder gem to use longitude and latitude
+  #for geocoder gem to convert address into "geocode"(longitude and latitude)
   geocoded_by :address
   after_validation :geocode
 
