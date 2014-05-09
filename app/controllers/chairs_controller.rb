@@ -30,9 +30,7 @@ class ChairsController < ApplicationController
 	end
 
 	def edit
-    
     @chair = current_user.chairs.find_by_id(params[:id])
-    
     if @chair.nil?
       flash[:notice] = "Not Authorized!"
       redirect_to chairs_path
@@ -45,11 +43,10 @@ class ChairsController < ApplicationController
     @chair = current_user.chairs.find_by_id(params[:id])
     if @chair.nil?
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
-    end
-    #not sure what attributes is doing here
+    else
     @chair.update_attributes chair_params 
     redirect_to(@chair)
-    # end
+    end
   end
 
   def destroy

@@ -2,25 +2,23 @@
 
 	<div class="row">  
     <div class="col-sm-5">
-     <div id="chair-flow"> 
-      <%= form_for @chair do |f| %>
+      <div id="chair-flow"> 
+        <%= form_for @chair do |f| %>
     
-  		  <div><%= label_tag(:name, "Type:") %></div>
-  		  <div><%= f.text_field :name %></div>
+  		    <div><%= label_tag(:name, "Type:") %></div>
+  		    <div><%= f.text_field :name %></div>
 
-  		  <div><%= label_tag(:description, "Description") %></div>
-  		  <div><%= f.text_area :description %></div>
-     </div>
-  		  <div><%= f.submit "Update", :class => ' btn btn-default' %></div></br>
+  		    <div><%= label_tag(:description, "Description") %></div>
+  		    <div><%= f.text_area :description %></div>
+      </div>
+  		    <div><%= f.submit "Update", :class => ' btn btn-default' %></div></br>
         
-  		  <%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %>
-	    <% end %>
+  		    <div><%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %></div>
+	      <% end %>
     </div>
       <br></br>
-        <div class="col-sm-7">
-          <%= image_tag @chair.image(:medium) %>
-        </div>
+          <div class="col-sm-7">
+            <%= image_tag @chair.image(:medium) %>
+          </div>    
   </div>
 
-
-<!-- button needs to be fixed -->

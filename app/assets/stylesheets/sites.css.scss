@@ -13,6 +13,11 @@
   height: 100%;
 }
 
+h4 {
+  text-align: center;
+  color: #2980b9;
+  font-family: Helvetica;
+}
   
   h1, h3{
     margin: 0;
@@ -25,7 +30,6 @@
   
   hgroup{
     display: inline-block;
-    z-index: 5;
     position: absolute;
     top: 35%;
     left: 25%;

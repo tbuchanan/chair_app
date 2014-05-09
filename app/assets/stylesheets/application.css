@@ -11,10 +11,35 @@
  * file per style scope.
  *
  * 
- *= require bootstrap.css
+ *= require bootstrap.min.css
  *= require_tree .
  *= require_self
  */
+
+.navbar-toggle .icon-bar {
+	/*padding-bottom: 3px;*/
+	margin-bottom: 4px;
+}
+
+.icon-bar {
+	color: #2F4F4F;
+}
+
+.navbar-toggle {
+	background-color: #FAEBD7;
+}
+
+img {
+	border: 1px solid #D3D3D3;
+}
+
+a > img {
+	border: none;
+}
+
+body {
+	background-color: #F5F5F5;
+}
 
 #flick {
 	background-color: #E0FFFF;
@@ -40,7 +65,8 @@ h2 {
 
 p {
 	text-align: center;
-	color: #4682B4;
+	color: #2980b9;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .navbar-brand {
 	font-size: 40px;
@@ -49,6 +75,7 @@ p {
 a.navbar-text {
 	font-size: 18px;
 	margin-top: 21px;
+	position: relative;
 }
 
 .nav > li > a:hover, a:focus {
@@ -82,7 +109,7 @@ a.navbar-text {
 
 h1 {
 	font-family: 'Arvo', serif;
-	text-align: center;
+	text-align: left;
 	color: #4682B4;
 }
 
