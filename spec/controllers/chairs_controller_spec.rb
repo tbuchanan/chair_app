@@ -4,7 +4,7 @@ describe ChairsController do
 
 	before(:each) do
 		sign_out :current_user
-		@chair = Chair.create(name: "desk", description: "nice!", address: "123 main st, sf, ca")
+		@chair = Chair.create(name: "desk", description: "nice!", address: "123 main st, sf, ca" image: "")
 	end
 
 	it "renders status 200(ok)" do

@@ -1,5 +1,5 @@
 class ChairsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! 
 	
   def index
     if user_signed_in? 
@@ -11,7 +11,6 @@ class ChairsController < ApplicationController
 
 	def show
 		@chair = Chair.find(params[:id])
-		#should show all available items
 	end
 
 	def new
@@ -44,8 +43,8 @@ class ChairsController < ApplicationController
     if @chair.nil?
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
     else
-    @chair.update_attributes chair_params 
-    redirect_to(@chair)
+      @chair.update_attributes chair_params 
+      redirect_to(@chair)
     end
   end
 
