@@ -8,7 +8,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'pg'
 gem 'bcrypt-ruby','3.1.2'
-gem 'better_errors'
 gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk'
@@ -41,6 +40,7 @@ group :development, :test do
   gem 'rails-erd'
 end
 
+# for heroku deployment
 group :production do
   gem 'rails_12factor'
 end

@@ -1,0 +1,42 @@
+<br>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-sm-12">
+        <table class="table table-striped table-hover">
+        <%= form_for(@search, url: search_chairs_path, method: :get, authenticity_token: false, :html => {:class => "form-horizontal"}) do |f| %>
+        <div class="form-group<%= "#{@search.errors.has_key?(:q) ? ' has-error' : ''}" %>">
+        <div class="col-xs-2">
+        <label class="control-label" for="q">Search Donations</label>
+        </div>
+            <div class="col-xs-10">
+                <%= f.text_field :q, class: "form-control" %>
+                <% if @search.errors.has_key?(:q) %>
+            <span class="help-block text-danger"><%= @search.errors[:q].first %></span>
+                <% end %>
+        </div>
+        </div>
+        <% end %>
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Delete</th>
+        </tr>
+        </thead>
+    
+        <tbody>
+        <tr>    
+        
+        <% @chairs.each do |i| %>    
+            <td><a href="/chairs/<%=i["id"]%>"><%=i["name"]%></a></td>
+            <td><a href="/chairs/<%=i["id"]%>"><%= i["description"  ] %></a></td>
+            <td><a href="/chairs/<%=i["id"]%>"><%= i["address"] %>  </a></td>
+            <td><%= link_to "Delete", i, :method => :delete, data:   { confirm: "Are you sure you want to delete?"}, :class => "btn-danger" %></td>
+        </tr>
+        </tbody> 
+        <% end %>
+        </table> 
+        </div>
+    </div>   
+</div>   

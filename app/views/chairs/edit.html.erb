@@ -1,5 +1,4 @@
 <h1></h1>
-
 	<div class="row">  
     <div class="col-sm-5">
       <div id="chair-flow"> 
@@ -16,9 +15,9 @@
   		    <div><%= link_to "Delete", chair_path, :method => :delete, data: { :confirm => 'Are you sure?'}, :class => 'btn btn-danger' %></div>
 	      <% end %>
     </div>
-      <br></br>
-          <div class="col-sm-7">
-            <%= image_tag @chair.image(:medium) %>
-          </div>    
+    <br></br>
+    <div class="col-sm-7">
+      <%= image_tag @chair.image(:medium) %>
+    </div>    
   </div>
 

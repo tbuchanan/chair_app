@@ -12,9 +12,13 @@ Rails.application.routes.draw do
 
   #user profile page
   get '/dashboard', to: 'dashboards#home'
-  
+  #search route ex_2
+  get 'search' => 'chairs#search'
 
-  resources :chairs
+  resources :chairs do
+    #search route ex_1
+    get 'search', on: :collection
+  end
 
 
 

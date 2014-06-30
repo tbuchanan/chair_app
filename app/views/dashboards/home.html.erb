@@ -2,11 +2,11 @@
 <h4>Your donations</h4>
 
 	<% @chairs.each do |chair| %>
-    	<div class="row">
+    <div class="row">
 			<div class="col-sm-4">
-      		<p><%= link_to chair.name, chair_path(chair.id) %></p>	
-      		<p><%= image_tag chair.image(:medium) %></p></br>
-      	</div>
+      	<p><%= link_to chair.name, chair_path(chair.id) %></p>	
+    		<p><%= image_tag chair.image(:medium) %></p></br>
+    	</div>
 	<% end %>
 		</div>
 

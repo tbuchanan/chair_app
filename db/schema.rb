@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140506225704) do
     t.string   "description"
     t.text     "image"
     t.datetime "created_at"
+    t.datetime "expires_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"

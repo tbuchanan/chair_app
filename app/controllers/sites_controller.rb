@@ -1,6 +1,8 @@
 class SitesController < ApplicationController
-	def index
-	end
+	
+  # for static pages
+  def index 
+  end
 
 	def about
 	end	

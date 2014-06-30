@@ -1,6 +1,4 @@
 <h4>Available donations</h4>
-
-
 <br></br>
 		
 	<% @chairs.each do |chair| %>
@@ -9,7 +7,7 @@
 		      <p><%= link_to chair.name, chair_path(chair.id) %> | 
 		      <%= link_to chair.address, chair_path(chair.id) %></p>
 		      <p><%= image_tag chair.image(:medium) %></p></br>
-		   </div>
+		  </div>
 		    	
 	<% end %>
 		</div>

@@ -1,4 +1,4 @@
-	<!-- need to add edit for user's donations -->
+
 
 <h2><!-- Furniture details --></h2>
 	<div class="container">
@@ -19,40 +19,25 @@
 		</div>
 			
 		<script>
-				$("#google").on("click", "#zoomIn, #zoomOut", function(event){
-					var $img = $("#chairMap");
-					var src = $("#chairMap").attr("src");
+			$("#google").on("click", "#zoomIn, #zoomOut", function(event){
+				var $img = $("#chairMap");
+				var src = $("#chairMap").attr("src");
+				var src_arr = src.split("&zoom=");
+				var zoom = (Number(src_arr[1]));
 
-					var src_arr = src.split("&zoom=")
-					var zoom = (Number(src_arr[1]));
-
-					console.log(event.target.id)
-					if (event.target.id === "zoomIn"){
-						if (zoom < 20){ 
-							zoom += 1;
-						
-						}
-					} else {
+				console.log(event.target.id)
+				if (event.target.id === "zoomIn"){
+					if (zoom < 20){ 
+						zoom += 1;					
+					}
+				} else {
 						if (zoom > 0){ 
 							zoom -= 1;
 						}
 					}
-					src = src_arr[0] + "&zoom="+ zoom;
-					$img.attr("src",src);
-				});
-				// $("#zoomOut").on("click", function(event){
-				// 	var $img = $("#chairMap");
-				// 	var src = $("#chairMap").attr("src");
-
-				// 	var src_arr = src.split("&zoom=");
-				// 	var zoom = (Number(src_arr[1]));
-
-				// 	if (zoom > 0){
-				// 		zoom -= 1;
-				// 		src = src_arr[0] + "&zoom="+ zoom;
-				// 		$img.attr("src", src);
-				// 	}
-				// });
+				src = src_arr[0] + "&zoom="+ zoom;
+				$img.attr("src",src);
+			});
 		</script>
 	</div>
 </div>

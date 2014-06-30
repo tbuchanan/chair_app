@@ -1,40 +1,48 @@
 class ChairsController < ApplicationController
-  before_filter :authenticate_user! 
-	
+  before_filter :authenticate_user!
+
   def index
-    if user_signed_in? 
+    if user_signed_in?
       @chairs = Chair.all
     else
       redirect_to "/home"
     end
-	end
+  end
 
-	def show
-		@chair = Chair.find(params[:id])
-	end
+  def search
+    @chairs = Chair.all
+    @search = SimpleSearch.new SimpleSearch.get_params(params)
+    if @search.valid?
+      @chairs = @search.search_within Chair.all, :name
+    end
+  end
 
-	def new
-		@chair = Chair.new
-	end
+  def show
+    @chair = Chair.find(params[:id])
+  end
 
-	def create 
-		@chair = current_user.chairs.new chair_params
-		if @chair.save
+  def new
+    @chair = Chair.new
+  end
+
+  def create
+    @chair = current_user.chairs.new chair_params
+    if @chair.save
       redirect_to dashboard_path
     else
-    error_messages = @chair.errors.messages.values.flatten
-    flash.now[:errors] = error_messages
-    render action: "new"
+      error_messages = @chair.errors.messages.values.flatten
+      flash.now[:errors] = error_messages
+      render action: "new"
     end
-	end
+  end
 
-	def edit
+  def edit
     @chair = current_user.chairs.find_by_id(params[:id])
     if @chair.nil?
       flash[:notice] = "Not Authorized!"
       redirect_to chairs_path
-    else 
-       render :edit
+    else
+      render :edit
     end
   end
 
@@ -43,7 +51,7 @@ class ChairsController < ApplicationController
     if @chair.nil?
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
     else
-      @chair.update_attributes chair_params 
+      @chair.update_attributes chair_params
       redirect_to(@chair)
     end
   end
@@ -53,13 +61,13 @@ class ChairsController < ApplicationController
       @chair = current_user.chairs.find(params[:id])
       @chair.destroy
       redirect_to(dashboard_path)
-    rescue 
+    rescue
       render :file => "#{Rails.root}/public/422", :layout => false, :status => 422
     end
   end
 
-private
-   def chair_params
-   	params.require(:chair).permit(:name, :description, :address, :image, :longitude, :latitude)
-   end
+  private
+  def chair_params
+    params.require(:chair).permit(:name, :description, :address, :image, :longitude, :latitude)
+  end
 end
